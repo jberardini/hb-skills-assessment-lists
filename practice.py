@@ -61,7 +61,13 @@ def n_long_words(words, n):
         ['apples', 'bananas']
     """
 
-    return ['the wrong thing']
+    n_long_words=[]
+
+    for word in words:
+        if len(word) > n:
+            n_long_words.append(word)
+
+    return n_long_words
 
 
 def smallest_int(numbers):
@@ -82,9 +88,11 @@ def smallest_int(numbers):
         >>> smallest_int([]) is None
         True
     """
-
-    return 100
-
+    
+    if len(numbers)>0:
+        numbers.sort()
+        return numbers[0]
+    
 
 def largest_int(numbers):
     """Find the largest integer in a list of integers and return it.
@@ -105,7 +113,9 @@ def largest_int(numbers):
         True
     """
 
-    return 0
+    if len(numbers)>0:
+        numbers.sort()
+        return numbers[len(numbers)-1]
 
 
 def halvesies(numbers):
@@ -122,8 +132,13 @@ def halvesies(numbers):
         >>> halvesies([1, 5])
         [0.5, 2.5]
     """
+    numbers_halved = []
 
-    return []
+    for number in numbers:
+        number_halved = float(number) / 2
+        numbers_halved.append(number_halved)
+
+    return numbers_halved
 
 
 def word_lengths(words):
