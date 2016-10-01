@@ -37,11 +37,8 @@ def long_words(words):
         >>> long_words(["all", "are", "tiny"])
         []
     """
-    long_words=[]
-
-    for word in words:
-        if len(word) > 4:
-            long_words.append(word)
+   
+    long_words = [word for word in words if len(word) > 4]
 
     return long_words
 
@@ -61,11 +58,7 @@ def n_long_words(words, n):
         ['apples', 'bananas']
     """
 
-    n_long_words=[]
-
-    for word in words:
-        if len(word) > n:
-            n_long_words.append(word)
+    n_long_words = [word for word in words if len(word) > n]
 
     return n_long_words
 
@@ -132,11 +125,8 @@ def halvesies(numbers):
         >>> halvesies([1, 5])
         [0.5, 2.5]
     """
-    numbers_halved = []
 
-    for number in numbers:
-        number_halved = float(number) / 2
-        numbers_halved.append(number_halved)
+    numbers_halved = [float(number) / 2 for number in numbers]
 
     return numbers_halved
 
@@ -150,7 +140,9 @@ def word_lengths(words):
         [5, 3, 5, 4]
     """
 
-    return []
+    word_lengths = [len(word) for word in words]
+
+    return word_lengths
 
 
 def sum_numbers(numbers):
@@ -170,7 +162,12 @@ def sum_numbers(numbers):
         0
     """
 
-    return None
+    total = 0
+
+    for number in numbers:
+        total += number
+
+    return total
 
 
 def mult_numbers(numbers):
@@ -193,7 +190,21 @@ def mult_numbers(numbers):
         1
     """
 
-    return None
+    count = 1
+    total_product = 0
+
+    if len(numbers) == 0:
+        total_product = 1
+    else:
+        for number in numbers:
+            if count == 1:
+                total_product = number
+                count += 1
+            else:
+                total_product *= number
+                count += 1
+
+    return total_product
 
 
 def join_strings(words):
