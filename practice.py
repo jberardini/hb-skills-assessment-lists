@@ -223,8 +223,11 @@ def join_strings(words):
         >>> join_strings([])
         ''
     """
+    joined_string = ""
+    for word in words:
+        joined_string += word
 
-    return "Not the right thing"
+    return joined_string
 
 
 def average(numbers):
@@ -247,7 +250,15 @@ def average(numbers):
     a feel free to provide a good solution here.)
     """
 
-    return 0
+    total = 0
+    length = len(numbers)
+
+    for number in numbers:
+        total += number
+
+    average = float(total) / length
+
+    return average
 
 
 def join_strings_with_comma(words):
@@ -267,8 +278,18 @@ def join_strings_with_comma(words):
         'Pretzel'
     """
 
-    return ""
+    joined_string_w_comma = ""
 
+    count = 1
+    for word in words:
+        if count == 1:
+            joined_string_w_comma = word
+            count += 1
+        else:
+            joined_string_w_comma = joined_string_w_comma + ", " + word
+            count += 1
+
+    return joined_string_w_comma
 
 def reverse_list(items):
     """Return the input list, reversed.
@@ -293,7 +314,9 @@ def reverse_list(items):
         ['apple', 'berry', 'cherry']
     """
 
-    return []
+    reversed_items = items[ : : -1]
+
+    return reversed_items
 
 
 def reverse_list_in_place(items):
@@ -318,6 +341,9 @@ def reverse_list_in_place(items):
         >>> orig
         ['I', 'love', 'cookies']
     """
+
+    for i in xrange(len(items), 0, -1):
+        
 
     return []
 
