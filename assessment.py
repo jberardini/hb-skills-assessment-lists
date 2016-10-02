@@ -123,8 +123,10 @@ def largest_n_items(items, n):
         [3, 3]
     """
 
-    sorted_items = sorted(items)
+    sorted_items = sorted(items)\
+
     largest_integers_list = sorted_items[len(sorted_items) - n : ]
+    
     return largest_integers_list
 
 

@@ -17,8 +17,8 @@ def print_list(items):
         3
         9
     """
-
-    print "the wrong thing"
+    for item in items:
+        print item
 
 
 def long_words(words):
@@ -342,10 +342,10 @@ def reverse_list_in_place(items):
         ['I', 'love', 'cookies']
     """
 
-    for i in xrange(len(items), 0, -1):
-        
+    items_length = len(items)
+    for i in range(0, items_length / 2):
+        items[i], items[items_length - 1 - i] = items[items_length - 1 - i], items[i]
 
-    return []
 
 
 def duplicates(items):
@@ -373,8 +373,16 @@ def duplicates(items):
         >>> orig
         ['apple', 'apple', 'berry']
     """
+    unique_items = set()
+    duplicate_items = []
 
-    return []
+    for item in items:
+        if item not in unique_items:
+            unique_items.add(item)
+        elif item in unique_items and item not in duplicate_items:
+            duplicate_items.append(item)
+
+    return sorted(duplicate_items)
 
 
 def find_letter_indices(words, letter):
@@ -403,8 +411,22 @@ def find_letter_indices(words, letter):
     ("o" does not appear in "jumps", so the result for that input is
     `None`.)
     """
+    indices = []
+    for word in words:
+        word_index = []
+        count = -1
+        for character in word:
+            if character == letter:
+                count +=1
+                word_index.append(count)
+            else:
+                count += 1
+        if len(word_index) > 0:
+            indices = indices + word_index
+        elif len(word_index)==0:
+            indices = indices + [None]
 
-    return []
+    return indices
 
 #####################################################################
 # END OF PRACTICE: You can ignore everything below.
