@@ -77,8 +77,9 @@ def foods_in_common(foods1, foods2):
 
     common_foods = set_foods1 & set_foods2
 
+    common_foods_list = sorted(list(common_foods))
 
-    return common_foods
+    return common_foods_list
 
 
 def every_other_item(items):
@@ -122,7 +123,9 @@ def largest_n_items(items, n):
         [3, 3]
     """
 
-    return []
+    sorted_items = sorted(items)
+    largest_integers_list = sorted_items[len(sorted_items) - n : ]
+    return largest_integers_list
 
 
 #####################################################################
